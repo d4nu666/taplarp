@@ -1,0 +1,13 @@
+{
+  "name": "taplarp-desktop",
+  "version": "0.1.0",
+  "description": "Desktop (Electron) shell for Taplarp -- the first step toward a Steam build",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^32.0.0"
+  }
+}
