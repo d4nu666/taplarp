@@ -106,10 +106,19 @@ On load, the game checks `Date.now()` against the last-saved timestamp and grant
 ## 12. File Structure
 
 ```
-taplarp/
-├── index.html      # markup/structure
-├── style.css       # visual design, animations
-├── script.js       # game state, loop, save/load
-├── DESIGN.md        # this document
-└── README.md        # how to run + iOS packaging notes
+taplarp/                 # git repo (origin: d4nu666/taplarp)
+├── index.html            # markup/structure (the web game)
+├── style.css             # visual design, animations
+├── script.js             # game state, loop, save/load
+├── DESIGN.md             # this document
+├── README.md             # how to run + Android/iOS/Steam packaging notes
+├── .gitignore
+└── desktop/               # Electron shell -- first step toward a Steam build
+    ├── main.js            # loads ../index.html into a native window
+    ├── package.json
+    └── .gitignore
 ```
+
+The web game (`index.html`/`style.css`/`script.js`) is the single source of truth --
+the desktop shell and any future Capacitor (iOS/Android) wrapper all load these same
+three files rather than keeping their own copies.

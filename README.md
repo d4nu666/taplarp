@@ -28,11 +28,16 @@ npx serve .
 
 ```
 taplarp/
-├── index.html    # markup/structure
-├── style.css     # visual design, animations
-├── script.js     # game state, loop, save/load
-├── DESIGN.md      # full game design doc
-└── README.md      # this file
+├── index.html      # markup/structure
+├── style.css       # visual design, animations
+├── script.js       # game state, loop, save/load
+├── DESIGN.md        # full game design doc
+├── README.md        # this file
+├── .gitignore
+└── desktop/          # Electron desktop shell (see "Roadmap to Steam" below)
+    ├── main.js
+    ├── package.json
+    └── .gitignore
 ```
 
 ## Roadmap to iOS
