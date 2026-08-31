@@ -1,7 +1,7 @@
 # Taplarp — Game Design Document
 
 **Genre:** Idle / incremental tapper (Cookie Clicker–style), satirical "hustle culture" theme
-**Platform plan:** Browser (HTML5/CSS/JS) first → wrapped as a native iOS app later via Capacitor
+**Platform plan:** Web browser only. No native app, no build step, no app store.
 **Tone:** Meme-y, self-aware, satirizes internet "get rich quick" / fake-guru culture. Nobody in this game is a real person, brand, or company — every name is an obvious parody.
 
 ---
@@ -91,17 +91,16 @@ On load, the game checks `Date.now()` against the last-saved timestamp and grant
 
 ## 10. Tech Stack
 
-- Plain HTML5 + CSS3 + vanilla JavaScript (no build step, no framework) — runs by opening `index.html` in any browser.
+- Plain HTML5 + CSS3 + vanilla JavaScript (no build step, no framework) — runs by opening `index.html` in any browser, or by hosting the three files on any static web host.
 - `localStorage` for save/load (autosave every few seconds + on tab close).
-- Chosen specifically so the exact same code can be wrapped 1:1 with **Capacitor** for an iOS build later with minimal rework (see README.md).
+- Deliberately kept dependency-free and web-only -- no native wrapper, no app-store packaging.
 
 ## 11. Roadmap / Future Ideas (not in this first playable build)
 
 - **Prestige loop ("Rebrand"):** after hitting MAXLARPER, let the player reset progress for a permanent multiplier ("Personal Brand Points") — classic idle-game replay hook.
 - **Random events:** "A follower is asking for a refund" (-$), "Your video went viral" (+$ burst), etc.
 - **Cosmetic customization:** unlockable avatar/emoji sets per rank.
-- **Sound & haptics:** tap feedback, rank-up stinger — trivial to add once wrapped for iOS (Capacitor Haptics plugin).
-- **iOS-specific:** App Store copy needs to clearly frame this as satire/comedy, not real financial guidance, per Apple review guidelines around apps referencing making money.
+- **Sound:** tap feedback and a rank-up stinger via the Web Audio API — no native plugin needed since the game stays browser-only.
 
 ## 12. File Structure
 
@@ -111,14 +110,9 @@ taplarp/                 # git repo (origin: d4nu666/taplarp)
 ├── style.css             # visual design, animations
 ├── script.js             # game state, loop, save/load
 ├── DESIGN.md             # this document
-├── README.md             # how to run + Android/iOS/Steam packaging notes
-├── .gitignore
-└── desktop/               # Electron shell -- first step toward a Steam build
-    ├── main.js            # loads ../index.html into a native window
-    ├── package.json
-    └── .gitignore
+├── README.md             # how to run + deploy
+└── .gitignore
 ```
 
-The web game (`index.html`/`style.css`/`script.js`) is the single source of truth --
-the desktop shell and any future Capacitor (iOS/Android) wrapper all load these same
-three files rather than keeping their own copies.
+Just those three files (`index.html`/`style.css`/`script.js`) make up the whole game --
+no native wrapper, no build tooling, nothing else to keep in sync.
