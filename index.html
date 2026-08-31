@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Taplarp</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Top bar: rank + lifetime -->
+    <header id="topbar">
+      <div id="rank-badge">
+        <span id="rank-emoji">🤡</span>
+        <span id="rank-name">Bozo</span>
+      </div>
+      <button id="reset-btn" title="Start Over">↺</button>
+    </header>
+
+    <!-- Main stacks counter -->
+    <section id="counter-section">
+      <div id="stacks-value">$0</div>
+      <div id="stacks-label">STACKS</div>
+      <div id="rate-value">+$0.0/sec</div>
+    </section>
+
+    <!-- Tap button -->
+    <section id="tap-section">
+      <button id="tap-btn">
+        <span id="tap-emoji">🤳</span>
+        <span id="tap-sub">TAP TO HUSTLE</span>
+      </button>
+      <div id="tap-value-label">+$1 / tap</div>
+    </section>
+
+    <!-- Upgrade: tap power -->
+    <section id="upgrade-section">
+      <button id="tap-upgrade-btn" class="shop-item">
+        <div class="shop-item-left">
+          <span class="shop-emoji">💪</span>
+          <div class="shop-text">
+            <div class="shop-name">Bigger Bag Energy</div>
+            <div class="shop-desc">+$1 per tap</div>
+          </div>
+        </div>
+        <div class="shop-cost" id="tap-upgrade-cost">$25</div>
+      </button>
+    </section>
+
+    <!-- Generators / Shop -->
+    <section id="shop-section">
+      <h2 class="section-title">The Grift Ladder</h2>
+      <div id="generator-list"><!-- populated by JS --></div>
+    </section>
+
+    <!-- Progress footer -->
+    <footer id="progress-footer">
+      <div id="progress-label">Next rank: <span id="next-rank-name">NPC</span></div>
+      <div id="progress-bar-track">
+        <div id="progress-bar-fill"></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Rank-up modal -->
+  <div id="rankup-modal" class="modal hidden">
+    <div class="modal-card">
+      <div id="rankup-emoji" class="rankup-emoji">🎉</div>
+      <div class="rankup-title">RANK UP</div>
+      <div id="rankup-name" class="rankup-name">NPC</div>
+      <div id="rankup-line" class="rankup-line">"Still walking to a 9-to-5, unfortunately."</div>
+      <button id="rankup-close" class="modal-btn">KEEP LARPING</button>
+    </div>
+  </div>
+
+  <!-- Offline earnings modal -->
+  <div id="offline-modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="rankup-emoji">😴</div>
+      <div class="rankup-title">WHILE YOU WERE LARPING...</div>
+      <div id="offline-amount" class="rankup-name">+$0</div>
+      <div class="rankup-line">Your empire kept "working" without you.</div>
+      <button id="offline-close" class="modal-btn">LET'S GO</button>
+    </div>
+  </div>
+
+  <!-- Maxlarper ascension modal -->
+  <div id="ascend-modal" class="modal hidden">
+    <div class="modal-card ascend-card">
+      <div class="rankup-emoji">😎💯</div>
+      <div class="rankup-title">YOU HAVE ASCENDED</div>
+      <div class="rankup-name">MAXLARPER</div>
+      <div class="rankup-line">Nothing about this is real, and it doesn't matter. Keep tapping if you want, legend.</div>
+      <button id="ascend-close" class="modal-btn">ETERNAL LARP</button>
+    </div>
+  </div>
+
+  <!-- Floating tap number template lives in JS -->
+
+  <script src="script.js"></script>
+</body>
+</html>
