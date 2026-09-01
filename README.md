@@ -28,19 +28,6 @@ or with Node:
 npx serve .
 ```
 
-## Deploying it
-
-Since it's static HTML/CSS/JS with no server, it can be hosted anywhere that serves static files — GitHub Pages, Netlify, Vercel, Cloudflare Pages, or any plain web host. Just upload/point at `index.html`, `style.css`, and `script.js`.
-
-### GitHub Pages (this repo)
-
-1. Push `main` to GitHub (`git push`).
-2. Make sure the repo is **public** -- GitHub's free plan only serves Pages from public repos (GitHub Pro/Team is needed to publish from a private one).
-3. On GitHub: **Settings -> Pages -> Build and deployment -> Source: "Deploy from a branch"**, branch **main**, folder **/ (root)** -> **Save**.
-4. Wait a minute or two -- it'll be live at `https://<your-username>.github.io/<repo-name>/`.
-
-A `.nojekyll` file is included so GitHub serves the files as-is instead of running them through Jekyll.
-
 ## Project structure
 
 ```
